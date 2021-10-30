@@ -28,6 +28,7 @@ graph_type = 'id-options-graph-type'
 graph_height = 'id-options-height'
 
 
+
 def create_attribute_dropdown(attributes, id):
     """Create attribute dropdowns
 
@@ -114,7 +115,11 @@ card = dbc.Card(
                     html.H6('Graph Type:'),
                     dcc.Dropdown(
                         id=graph_type,
-                        disabled=True
+                        options=[{'label': 'Scatter Plot', 'value': 'scatter'},
+                                 {'label': 'Line Plot', 'value': 'line'},
+                                 {'label': 'Bar Plot', 'value': 'bar'}],
+                        # disabled=True
+                        value='scatter'
                     ),
                     html.H6('Height (px):'),
                     dcc.Input(
