@@ -81,9 +81,10 @@ def fetch_columns_from_data(data):
     Input(store_id, 'data'),
     Input({'type': go.att_drop, 'index': ALL}, 'value'),
     Input({'type': go.label_input, 'index': ALL}, 'value'),
-    Input(go.graph_height, 'value')
+    Input(go.graph_height, 'value'),
+    Input(go.graph_type, 'value')
 )
-def create_figure(data, att_values, label_values, height):
+def create_figure(data, att_values, label_values, height, graph_type):
     """Handle options for graph option dropdowns
 
     Parameters
@@ -102,7 +103,7 @@ def create_figure(data, att_values, label_values, height):
         figure: plotly.graph_objects.Figure
             Created graph object
     """
-
+    
     if not func.validate_store_data(data) or all(i is None for i in att_values):
         raise PreventUpdate
 
@@ -125,15 +126,38 @@ def create_figure(data, att_values, label_values, height):
     graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
 
     # create the scatter plot
-    figure = px.scatter(
-        df,
-        x=x_att,
-        y=y_att,
-        size=attributes[go.size],
-        color=attributes[go.color],
-        title=labels[go.title],
-        labels=graph_labels,
-        height=height
-    )
+    if(graph_type == 'scatter'):
+        figure = px.scatter(
+            df,
+            x=x_att,
+            y=y_att,
+            size=attributes[go.size],
+            color=attributes[go.color],
+            title=labels[go.title],
+            labels=graph_labels,
+            height=height
+        )
+    elif(graph_type == 'bar'):
+        figure = px.bar(
+            df,
+            x=x_att,
+            y=y_att,
+            # size=attributes[go.size],
+            color=attributes[go.color],
+            title=labels[go.title],
+            labels=graph_labels,
+            height=height
+        )
+    elif(graph_type == 'line'):
+        figure = px.line(
+            df,
+            x=x_att,
+            y=y_att,
+            # size=attributes[go.size],
+            color=attributes[go.color],
+            title=labels[go.title],
+            labels=graph_labels,
+            height=height
+        )
 
     return figure
