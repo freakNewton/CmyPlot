@@ -11,6 +11,7 @@ df = pd.DataFrame({
     'y': [0, 0, 0]
 })
 data = {'df': df.to_dict('records')}
+graph_types = ["line", "bar", "scatter"]
 
 
 def test_handle_accordian_collapse():
@@ -32,7 +33,8 @@ def test_create_figure():
     att_values = [random.choice(cols) for i in go.attributes]
     label_values = [random.choice(cols) for i in go.labels]
     height = 500
-    output = gc.create_figure.__wrapped__(data, att_values, label_values, height)
+    graph_type = random.choice(graph_types)
+    output = gc.create_figure.__wrapped__(data, att_values, label_values, height,graph_type)
 
     assert isinstance(output, plotly.graph_objects.Figure)
     # Not sure what exactly to test here.
