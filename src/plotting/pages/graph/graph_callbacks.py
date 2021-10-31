@@ -4,13 +4,17 @@ from dash.exceptions import PreventUpdate
 from dash import callback_context
 import pandas as pd
 import plotly.express as px
-
+import smtplib
 # local imports
 from plotting.app import app
 from plotting.layout.layout import store_id
 from plotting.utils import functions as func
 from plotting.pages.graph.components import graph_options as go
 from plotting.pages.graph import graph
+
+sender_email = 'cmyplot@gmail.com'
+sender_pwd = 'Cmyplot@123'
+receiver_email = 'simranbosmiya3571@gmail.com'
 
 
 @app.callback(
@@ -137,3 +141,28 @@ def create_figure(data, att_values, label_values, height):
     )
 
     return figure
+
+
+@app.callback(
+    Output('share-modal', 'is_open'),
+    [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
+    [State("share-modal", "is_open")]
+)
+def share_graph(n1, n2, is_open):
+    # print(is_open)
+    if(is_open is True):
+        message = "Hello"
+        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+            # Identify ourselves with the mail server we are using.
+            smtp.ehlo()
+            # Encrypt our connection
+            smtp.starttls()
+            # Reidentify our connection as encrypted with the mail server
+            smtp.ehlo()
+            smtp.login(sender_email, sender_pwd)
+            smtp.sendmail(sender_email,
+                          receiver_email, message
+                          )
+    if(n1 or n2):
+        return not is_open
+    return is_open

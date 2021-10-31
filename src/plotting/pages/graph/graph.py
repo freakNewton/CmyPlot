@@ -26,10 +26,38 @@ layout = dbc.Container(
                     className='col-lg-3'
                 ),
                 dbc.Col(
-                    dcc.Graph(
-                        id=graph_id,
-                        config=graph_config
-                    ),
+                    [
+                        dbc.Row(
+                            html.Div([
+                                dbc.Button('Share', id='share-button',
+                                           n_clicks=0,
+                                           className="btn, btn-primary"),
+                                dbc.Modal(
+                                    [
+                                        dbc.ModalHeader(
+                                            dbc.ModalTitle("Share")
+                                        ),
+                                        dbc.ModalBody("Share"),
+                                        dbc.ModalFooter(
+                                            dbc.Button(
+                                                "Send", id="send-button",
+                                                className="ms-auto, btn, btn-primary", n_clicks=0
+                                            )
+                                        )
+                                    ],
+                                    id="share-modal",
+                                    is_open=False
+                                )
+                            ]),
+                            className='float-right'
+                        ),
+                        dbc.Row(
+                            dcc.Graph(
+                                id=graph_id,
+                                config=graph_config
+                            )
+                        )
+                    ],
                     className='col-lg-9'
                 )
             ]
