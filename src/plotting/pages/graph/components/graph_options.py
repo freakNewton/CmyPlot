@@ -140,9 +140,10 @@ card = dbc.Card(
         dbc.Collapse(
             dbc.CardBody(
                 [
-                    html.Div(create_hover_dropdown(columns, hover_input)),
-                    html.Hr(),
+                    
                     html.Div(create_attribute_dropdown(attributes, att_drop)),
+                    html.Hr(),
+                    html.Div(create_hover_dropdown(columns, hover_input)),
                     html.Hr(),
                     html.Div(create_label_dropdown(labels, label_input)),
                     html.Hr(),
