@@ -153,7 +153,6 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
     graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
 
     hover_column = hover[go.column_attr]
-
     # create the scatter plot
     if(graph_type == 'scatter'):
         figure = px.scatter(
@@ -165,7 +164,7 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             title=labels[go.title],
             labels=graph_labels,
             height=height,
-            hover_name=hover_column
+            hover_data=[hover_column]
         )
     elif(graph_type == 'bar'):
         figure = px.bar(
@@ -176,7 +175,8 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
+            hover_data=[hover_column]
         )
     elif(graph_type == 'line'):
         figure = px.line(
@@ -187,7 +187,8 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
+            hover_data=[hover_column]
         )
 
     return figure
