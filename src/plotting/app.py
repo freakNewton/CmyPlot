@@ -3,6 +3,7 @@ import dash
 import dash_bootstrap_components as dbc
 from flask_caching import Cache
 import os
+from dash import dcc
 
 # local imports
 from plotting.layout.layout import layout
@@ -29,3 +30,4 @@ cache = Cache(app.server, config={
 
 # set initial layout
 app.layout = layout
+dcc.Store(id='session', storage_type='session')

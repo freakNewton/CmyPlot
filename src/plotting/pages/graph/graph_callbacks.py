@@ -2,6 +2,10 @@
 from dash.dependencies import ALL, Input, Output, State
 from dash.exceptions import PreventUpdate
 from dash import callback_context
+from dash import dcc
+import email as email
+from plotly.io import to_image
+from email.mime.image import MIMEImage
 import pandas as pd
 import plotly.express as px
 import smtplib
@@ -139,17 +143,19 @@ def create_figure(data, att_values, label_values, height):
         labels=graph_labels,
         height=height
     )
-
+    # print(type(figure), figure.to_json())
+    # dcc.Store(id="graphstore", data=figure.to_json(), storage_type='session')
     return figure
 
 
 @app.callback(
     Output('share-modal', 'is_open'),
     [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
-    [State("share-modal", "is_open")]
+    #  Input(graph.graph_id.format('graphstore'), 'graph_id')
+    State("share-modal", "is_open")
 )
 def share_graph(n1, n2, is_open):
-    # print(is_open)
+    print(is_open)
     if(is_open is True):
         message = "Hello"
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
@@ -160,9 +166,17 @@ def share_graph(n1, n2, is_open):
             # Reidentify our connection as encrypted with the mail server
             smtp.ehlo()
             smtp.login(sender_email, sender_pwd)
-            smtp.sendmail(sender_email,
-                          receiver_email, message
-                          )
+            # print(type(figure), figure)
+
+            # -----------------------
+            # plot_img = to_image(figure)
+            # -----------------------
+
+            # print(type(plot_img), plot_img)
+            # message = MIMEImage()
+            # message.attach(plot_img, subtype='.png',
+            #                _encoder=email.encoders.encode_base64)
+            smtp.sendmail(sender_email, receiver_email, message)
     if(n1 or n2):
         return not is_open
     return is_open

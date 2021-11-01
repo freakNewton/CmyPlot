@@ -56,7 +56,8 @@ layout = dbc.Container(
                                 id=graph_id,
                                 config=graph_config
                             )
-                        )
+                        ),
+                        # dcc.Store(id="graphstore", storage_type="session")
                     ],
                     className='col-lg-9'
                 )
