@@ -75,16 +75,42 @@ def fetch_columns_from_data(data):
 
     return [options for i in range(len(go.attributes))]
 
+@app.callback(
+    Output({'type': go.hover_input, 'index': ALL}, 'options'),
+    Input(store_id, 'data')
+)
+def fetch_hover_columns_from_data(data):
+    """Handle options for graph option dropdowns
+
+    Parameters
+    ----------
+        data: dict
+            data from stored dcc.Store component
+
+    Returns
+    ----------
+        options: list of dict
+            Options for each of the dropdowns in the form of
+            {'label': 'Example', 'value': 'example'}
+    """
+
+    if not func.validate_store_data(data):
+        raise PreventUpdate
+
+    options = func.fetch_columns_options(data['df'])
+
+    return [options for i in range(len(go.columns))]
 
 @app.callback(
     Output(graph.graph_id, 'figure'),
     Input(store_id, 'data'),
     Input({'type': go.att_drop, 'index': ALL}, 'value'),
     Input({'type': go.label_input, 'index': ALL}, 'value'),
+    Input({'type': go.hover_input,'index': ALL},'value'),
     Input(go.graph_height, 'value'),
     Input(go.graph_type, 'value')
 )
-def create_figure(data, att_values, label_values, height, graph_type):
+def create_figure(data, att_values, label_values, hover_values, height, graph_type):
     """Handle options for graph option dropdowns
 
     Parameters
@@ -104,12 +130,13 @@ def create_figure(data, att_values, label_values, height, graph_type):
             Created graph object
     """
     
-    if not func.validate_store_data(data) or all(i is None for i in att_values):
+    if not func.validate_store_data(data) or all(i is None for i in att_values)or all(i is None for i in hover_values):
         raise PreventUpdate
 
     # zip keys with values for easy dictionary access
     attributes = dict(zip(go.attributes, att_values))
     labels = dict(zip(go.labels, label_values))
+    hover = dict(zip(go.columns, hover_values))
 
     # prep data
     df = pd.DataFrame(data['df'])
@@ -125,6 +152,8 @@ def create_figure(data, att_values, label_values, height, graph_type):
     y_lab = labels[go.y_lab]
     graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
 
+    hover_column = hover[go.column_attr]
+
     # create the scatter plot
     if(graph_type == 'scatter'):
         figure = px.scatter(
@@ -135,7 +164,8 @@ def create_figure(data, att_values, label_values, height, graph_type):
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
+            hover_name=hover_column
         )
     elif(graph_type == 'bar'):
         figure = px.bar(
