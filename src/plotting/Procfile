@@ -1,2 +1,2 @@
+web: pip install -e .
 web: gunicorn app:server
-
