@@ -2,9 +2,10 @@
 from dash.dependencies import ALL, Input, Output, State
 from dash.exceptions import PreventUpdate
 from dash import callback_context
+import numpy as np
 import pandas as pd
 import plotly.express as px
-
+from pandas.api.types import is_integer_dtype
 # local imports
 from plotting.app import app
 from plotting.layout.layout import store_id
@@ -12,6 +13,7 @@ from plotting.utils import functions as func
 from plotting.pages.graph.components import graph_options as go
 from plotting.pages.graph import graph
 
+import statistics
 
 @app.callback(
     Output(go.collapse, 'is_open'),
@@ -103,6 +105,14 @@ def fetch_hover_columns_from_data(data):
 
 @app.callback(
     Output(graph.graph_id, 'figure'),
+    Output(graph.x_mean_id, component_property='children'),
+    Output(graph.x_median_id,component_property='children'),
+    Output(graph.x_mode_id,component_property='children'),
+    Output(graph.y_mean_id, component_property='children'),
+    Output(graph.y_median_id,component_property='children'),
+    Output(graph.y_mode_id,component_property='children'),
+    Output(graph.x_std_id,component_property='children'),
+    Output(graph.y_std_id,component_property='children'),
     Input(store_id, 'data'),
     Input({'type': go.att_drop, 'index': ALL}, 'value'),
     Input({'type': go.label_input, 'index': ALL}, 'value'),
@@ -148,9 +158,38 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
     x_lab = labels[go.x_lab]
     graph_labels[x_att] = x_lab if (x_att and x_lab) else x_att
 
+    x_mean = "X label is Not a Number"
+    x_median = "X label is Not a Number"
+    x_mode = "X label is Not a Number"
+    
+    if(df[x_att].dtype == np.float64 or df[x_att].dtype == np.int64) :
+        x_mean = round(statistics.mean(df[x_att]),2)
+        x_median = round(statistics.median(df[x_att]),2)
+        x_mode = round(statistics.mode(df[x_att]),2)
+       
+    y_mean = "Y label is Not a Number"
+    y_median = "Y label is Not a Number"
+    y_mode = "Y label is Not a Number"
+
     y_att = attributes[go.y_att]
     y_lab = labels[go.y_lab]
     graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
+    # print(statistics.mean(df[y_att]))
+    # print(statistics.median(df[y_att]))
+    # print(statistics.mode(df[y_att]))
+
+    if(df[y_att].dtype == np.float64 or df[y_att].dtype == np.int64) :
+        y_mean = round(statistics.mean(df[y_att]),2)
+        y_median = round(statistics.median(df[y_att]),2)
+        y_mode = round(statistics.mode(df[y_att]),2)
+    
+    x_std = "X label is Not a Number"
+    if(df[x_att].dtype == np.float64 or df[x_att].dtype == np.int64) :
+        x_std = round(statistics.stdev(df[x_att]))
+    
+    y_std = "Y label is Not a Number"
+    if(df[y_att].dtype == np.float64 or df[y_att].dtype == np.int64) :
+        y_std = round(statistics.stdev(df[y_att]))
 
     hover_column = hover[go.column_attr]
     # create the scatter plot
@@ -191,4 +230,4 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             hover_data=[hover_column]
         )
 
-    return figure
+    return figure, x_mean, x_median, x_mode, y_mean, y_median, y_mode, x_std, y_std
