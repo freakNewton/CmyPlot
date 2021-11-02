@@ -32,9 +32,10 @@ def test_create_figure():
     cols = list(data['df'][0].keys())
     att_values = [random.choice(cols) for i in go.attributes]
     label_values = [random.choice(cols) for i in go.labels]
+    hover_values = [random.choice(cols) for i in go.hover_input]
     height = 500
     graph_type = random.choice(graph_types)
-    output = gc.create_figure.__wrapped__(data, att_values, label_values, height,graph_type)
+    output = gc.create_figure.__wrapped__(data, att_values, label_values, hover_values, height,graph_type)
 
     assert isinstance(output, plotly.graph_objects.Figure)
     # Not sure what exactly to test here.
