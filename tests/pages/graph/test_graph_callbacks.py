@@ -37,7 +37,7 @@ def test_create_figure():
     graph_type = random.choice(graph_types)
     output = gc.create_figure.__wrapped__(data, att_values, label_values, hover_values, height,graph_type)
 
-    assert isinstance(output, plotly.graph_objects.Figure)
+    assert isinstance(output[0], plotly.graph_objects.Figure)
     # Not sure what exactly to test here.
     # This is the output of the above function
     #
