@@ -1,1 +1,1 @@
-web: gunicorn index:server
+web: gunicorn src.plotting.index:server
