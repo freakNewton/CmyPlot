@@ -1,8 +1,10 @@
 # package imports
+import os
 from dash.dependencies import ALL, Input, Output, State
 from dash.exceptions import PreventUpdate
 from dash import callback_context
-from dash import dcc
+# from dash import dcc
+from PIL import Image as PImage
 import email as email
 from plotly.io import to_image
 from email.mime.image import MIMEImage
@@ -15,6 +17,7 @@ from plotting.layout.layout import store_id
 from plotting.utils import functions as func
 from plotting.pages.graph.components import graph_options as go
 from plotting.pages.graph import graph
+import joblib
 
 sender_email = 'cmyplot@gmail.com'
 sender_pwd = 'Cmyplot@123'
@@ -78,7 +81,8 @@ def fetch_columns_from_data(data):
 
     if not func.validate_store_data(data):
         raise PreventUpdate
-
+    # print(data, type(()))
+    # dcc.Store(id="uploaddata", data=json.dumps(data), storage_type='session')
     options = func.fetch_columns_options(data['df'])
 
     return [options for i in range(len(go.attributes))]
@@ -145,6 +149,11 @@ def create_figure(data, att_values, label_values, height):
     )
     # print(type(figure), figure.to_json())
     # dcc.Store(id="graphstore", data=figure.to_json(), storage_type='session')
+    # img = figure.to_image(format="png")
+    # if not os.path.exists("src/plotting/assets/images"):
+    #     os.mkdir("src/plotting/assets/images/")
+    # img.write_image("src/plotting/assets/images/graph.png")
+    joblib.dump(figure, "src/plotting/assets/images/fig.pkl")
     return figure
 
 
@@ -155,7 +164,7 @@ def create_figure(data, att_values, label_values, height):
     State("share-modal", "is_open")
 )
 def share_graph(n1, n2, is_open):
-    print(is_open)
+    # print(is_open)
     if(is_open is True):
         message = "Hello"
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
@@ -169,13 +178,14 @@ def share_graph(n1, n2, is_open):
             # print(type(figure), figure)
 
             # -----------------------
-            # plot_img = to_image(figure)
+            plot_img = to_image(joblib.load("src/plotting/assets/images/fig.pkl"))
             # -----------------------
 
             # print(type(plot_img), plot_img)
-            # message = MIMEImage()
-            # message.attach(plot_img, subtype='.png',
-            #                _encoder=email.encoders.encode_base64)
+            # plot_img = PImage.open("images/graph.png")
+            message = MIMEImage(plot_img)
+            message.attach(plot_img, subtype='.png',
+                           _encoder=email.encoders.encode_base64)
             smtp.sendmail(sender_email, receiver_email, message)
     if(n1 or n2):
         return not is_open
