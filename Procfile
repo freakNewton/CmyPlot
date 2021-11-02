@@ -1,1 +1,1 @@
-web: gunicorn src/plotting/app:server
+web: gunicorn index:server
