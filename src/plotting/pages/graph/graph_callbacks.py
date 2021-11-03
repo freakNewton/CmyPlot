@@ -118,8 +118,6 @@ def create_figure(data, att_values, label_values, height):
     """
     if not func.validate_store_data(data) or all(i is None for i in att_values):
         raise PreventUpdate
-    # print(type(data), att_values, label_values, height)
-
     # zip keys with values for easy dictionary access
     attributes = dict(zip(go.attributes, att_values))
     labels = dict(zip(go.labels, label_values))
@@ -150,12 +148,6 @@ def create_figure(data, att_values, label_values, height):
         height=height
     )
 
-    # print(type(figure), figure.to_json())
-    # dcc.Store(id="graphstore", data=figure.to_json(), storage_type='session')
-    # img = figure.to_image(format="png")
-    # if not os.path.exists("src/plotting/assets/images"):
-    #     os.mkdir("src/plotting/assets/images/")
-    # img.write_image("src/plotting/assets/images/graph.png")
     joblib.dump(figure, "src/plotting/assets/images/fig.pkl")
     return figure
 
@@ -163,63 +155,23 @@ def create_figure(data, att_values, label_values, height):
 @app.callback(
     Output('share-modal', 'is_open'),
     [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
-    #  Input(graph.graph_id.format('graphstore'), 'graph_id')
     [State("share-modal", "is_open")]
 )
 def share_graph(n1, n2, is_open):
-    # print(is_open)
     if(is_open is True):
-        # print(type(data), att_drop, label_input, height)
         message = "Hello"
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-            # Identify ourselves with the mail server we are using.            
-            # # fig = create_figure(data, att_drop, label_input, height)
-            # # print(type(figure), figure)
-            # attributes = dict(zip(go.attributes, att_drop))
-            # labels = dict(zip(go.labels, label_input))
-
-            # # prep data
-            # df = pd.DataFrame(data['df'])
-
-            # # Set the x and y axis labels
-            # graph_labels = {}
-
-            # x_att = attributes[go.x_att]
-            # x_lab = labels[go.x_lab]
-            # graph_labels[x_att] = x_lab if (x_att and x_lab) else x_att
-
-            # y_att = attributes[go.y_att]
-            # y_lab = labels[go.y_lab]
-            # graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
-
-            # # create the scatter plot
-            # fig = px.scatter(
-            #     df,
-            #     x=x_att,
-            #     y=y_att,
-            #     size=attributes[go.size],
-            #     color=attributes[go.color],
-            #     title=labels[go.title],
-            #     labels=graph_labels,
-            #     height=height
-            # )
-            # if not os.path.exists("src/plotting/assets/images"):
-            #     os.mkdir("src/plotting/assets/images/")
+            # restoring graph object pkl
             temp = joblib.load("src/plotting/assets/images/fig.pkl")
             pio.write_image(temp, "src/plotting/assets/images/graph.png")
-            # return True
-            # -----------------------
-            # plot_img = to_image(fig)
-            # -----------------------
-            # print(type(plot_img))
-            # print(type(plot_img), plot_img)
-            # plot_img = PImage.open("src/plotting/assets/images/graph.png")
+            # saving graph image locally
             with open("src/plotting/assets/images/graph.png", 'rb') as f:
                 img_data = f.read()
+            # initlializing message object for email
             message = MIMEMultipart()
             image = MIMEImage(img_data, name="graph.png")
-            message.attach(image)
-            # print("here1")
+            message.attach(image)   # attaching graph image
+            # Identify ourselves with the mail server we are using.            
             smtp.ehlo()
             # Encrypt our connection
             smtp.starttls()
@@ -228,7 +180,6 @@ def share_graph(n1, n2, is_open):
             smtp.login(sender_email, sender_pwd)
             smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
-            # print("here2")
     if(n1 or n2):
         return not is_open
     return is_open
