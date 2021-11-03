@@ -11,8 +11,24 @@ import pages.upload.upload_callbacks
 import pages.table.table_callbacks
 import pages.graph.graph_callbacks
 
+
+
+import dash_auth
+import plotly
+import dash 
 # initialize services
 server = app.server
+
+
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'hello': 'world',
+    'thosaniparth':'pthosan',
+    'shahnisarg':'nsshah05'
+}
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
 
 # site endpoint
 if __name__ == '__main__':
@@ -33,3 +49,4 @@ if __name__ == '__main__':
         dev_tools_props_check=DEV_TOOLS_PROPS_CHECK,
         dev_tools_hot_reload=False
     )
+    

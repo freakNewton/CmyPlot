@@ -2,15 +2,11 @@
 **Data Visualisation Web App** 
 
 
-![GitHub](https://img.shields.io/github/license/bradley-erickson/CmyPlot)
-[![DOI](https://zenodo.org/badge/402902282.svg)](https://zenodo.org/badge/latestdoi/402902282)
-![example event parameter](https://github.com/bradley-erickson/project1/actions/workflows/python-app.yml/badge.svg?event=push)
-![Github](https://img.shields.io/badge/language-python-red.svg)
-![GitHub issues](https://img.shields.io/github/issues-raw/bradley-erickson/CmyPlot)
-![Github closes issues](https://img.shields.io/github/issues-closed-raw/bradley-erickson/CmyPlot)
-![Github pull requests](https://img.shields.io/github/issues-pr/bradley-erickson/CmyPlot)
-![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/bradley-erickson/CmyPlot)
-[![codecov](https://codecov.io/gh/bradley-erickson/CmyPlot/branch/main/graph/badge.svg?token=PYRZHGZC5R)](https://codecov.io/gh/bradley-erickson/CmyPlot)
+![GitHub](https://img.shields.io/github/license/thosaniparth/Cmyplot)
+[![DOI](https://zenodo.org/badge/418669581.svg)](https://zenodo.org/badge/latestdoi/418669581)
+![GitHub issues](https://img.shields.io/github/issues-raw/thosaniparth/Cmyplot)
+![Github closes issues](https://img.shields.io/github/issues-closed-raw/thosaniparth/Cmyplot)
+[![codecov](https://codecov.io/gh/thosaniparth/CmyPlot/branch/main/graph/badge.svg?token=MFMBV2TFF3)](https://codecov.io/gh/thosaniparth/CmyPlot)
 
 ## Why Data Visualization?
 
@@ -155,13 +151,10 @@ https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-
      ## Roadmap
        - [List of Roadmap and their corresponding open issues](https://github.com/bradley-erickson/CmyPlot/issues/48)
 ## Team Members
-[Bradley Erickson](https://github.com/bradley-erickson)
+[Simran Bosamiya](https://github.com/BosamiyaSimran)
 
-[Aakriti Aakriti](https://github.com/aakriti0fnu)
+[Nisarg Shah](https://github.com/freakNewton)
 
-[Sharath Kumar](https://github.com/sharathKV)
+[Parth Thosani](https://github.com/thosaniparth)
 
-[AshwinKumarMuniswamy](https://github.com/AshwinKumarMuniswamy)
-
-[Jainam Shah](https://github.com/j-08-shah)
 
