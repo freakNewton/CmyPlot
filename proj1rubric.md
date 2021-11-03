@@ -5,10 +5,10 @@
 | Notes|Self-assement|evidence|
 |------|------|---------|
 |workload is spread over the whole team (one team member is often Xtimes more productive than the others... but nevertheless, here is a track record that everyone is contributing a lot) | 2 | evidence  in GH |
-| Number of commits | 2 | https://github.com/thosaniparth/CmyPlot/graphs/commit-activity |
-| Number of commits: by different people | 2 | https://github.com/thosaniparth/CmyPlot/graphs/contributors |
-| Issues reports: there are **many** | 3 | https://github.com/thosaniparth/CmyPlot/issues |
-| issues are being closed | 3 | https://github.com/thosaniparth/CmyPlot/issues?q=is%3Aissue+is%3Aclosed |
+| Number of commits | 2 | https://github.com/bradley-erickson/CmyPlot/graphs/commit-activity |
+| Number of commits: by different people | 2 | https://github.com/bradley-erickson/CmyPlot/graphs/contributors |
+| Issues reports: there are **many** | 3 | https://github.com/bradley-erickson/CmyPlot/issues |
+| issues are being closed | 3 | https://github.com/bradley-erickson/CmyPlot/issues?q=is%3Aissue+is%3Aclosed |
 | DOI badge: exists | 3 | https://github.com/bradley-erickson/CmyPlot/blob/main/README.md |
 | Docs: doco generated , format not ugly | 2 | in GH |
 | Docs: what: point descriptions of each class/function (in isolation) | 2 |  |
