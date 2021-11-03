@@ -9,8 +9,6 @@ from plotting.utils.functions import fetch_columns_options
 from plotting.pages.table import table
 from plotting.layout.layout import store_id
 
-
-
 @app.callback(
     Output(table.table_id, 'data'),
     Output(table.table_id, 'columns'),
@@ -40,6 +38,7 @@ def initialize_table_data(page_current,page_size,data):
     #     page_current*page_size:(page_current+ 1)*page_size
     # ].to_dict('records')
     temp = data['df'][page_current*page_size:(page_current+ 1)*page_size]
+    # length = len(data['df'])
     print(len(temp), len(data['df']))
 
     return temp,cols
@@ -103,8 +102,19 @@ def initialize_table_data(data):
 @app.callback(
     Output(table.table_id, 'page_count'),
     Input(table.use_page_count, 'value'),
-    Input(table.page_count, 'value'))
+    Input(table.page_count, 'value'),
+)
 def update_table(use_page_count, page_count_value):
     if len(use_page_count) == 0 or page_count_value is None:
         return None
     return page_count_value
+
+@app.callback(
+    Output(table.table_id,'page_size'),
+    Input(table.page_size,'value'),
+)
+def update_table(page_size):
+    if page_size == None:
+        raise PreventUpdate
+    return page_size
+
