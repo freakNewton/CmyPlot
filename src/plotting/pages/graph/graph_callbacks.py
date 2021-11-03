@@ -156,7 +156,7 @@ def create_figure(data, att_values, label_values, height):
     # if not os.path.exists("src/plotting/assets/images"):
     #     os.mkdir("src/plotting/assets/images/")
     # img.write_image("src/plotting/assets/images/graph.png")
-    # joblib.dump(figure, "src/plotting/assets/images/fig.pkl")
+    joblib.dump(figure, "src/plotting/assets/images/fig.pkl")
     return figure
 
 
@@ -164,55 +164,50 @@ def create_figure(data, att_values, label_values, height):
     Output('share-modal', 'is_open'),
     [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
     #  Input(graph.graph_id.format('graphstore'), 'graph_id')
-    [State("share-modal", "is_open"), 
-     State({"type": go.att_drop, "index": ALL}, "value"),
-     State({"type": go.label_input, "index": ALL}, "value"),
-     State(store_id, 'data'),
-     State(go.graph_height, 'value')]
+    [State("share-modal", "is_open")]
 )
-def share_graph(n1, n2, is_open, att_drop, label_input, data, height):
+def share_graph(n1, n2, is_open):
     # print(is_open)
     if(is_open is True):
         # print(type(data), att_drop, label_input, height)
         message = "Hello"
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-            # Identify ourselves with the mail server we are using.
-            
-            # fig = create_figure(data, att_drop, label_input, height)
-            # print(type(figure), figure)
-            attributes = dict(zip(go.attributes, att_drop))
-            labels = dict(zip(go.labels, label_input))
+            # Identify ourselves with the mail server we are using.            
+            # # fig = create_figure(data, att_drop, label_input, height)
+            # # print(type(figure), figure)
+            # attributes = dict(zip(go.attributes, att_drop))
+            # labels = dict(zip(go.labels, label_input))
 
-            # prep data
-            df = pd.DataFrame(data['df'])
+            # # prep data
+            # df = pd.DataFrame(data['df'])
 
-            # Set the x and y axis labels
-            graph_labels = {}
+            # # Set the x and y axis labels
+            # graph_labels = {}
 
-            x_att = attributes[go.x_att]
-            x_lab = labels[go.x_lab]
-            graph_labels[x_att] = x_lab if (x_att and x_lab) else x_att
+            # x_att = attributes[go.x_att]
+            # x_lab = labels[go.x_lab]
+            # graph_labels[x_att] = x_lab if (x_att and x_lab) else x_att
 
-            y_att = attributes[go.y_att]
-            y_lab = labels[go.y_lab]
-            graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
+            # y_att = attributes[go.y_att]
+            # y_lab = labels[go.y_lab]
+            # graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
 
-            # create the scatter plot
-            fig = px.scatter(
-                df,
-                x=x_att,
-                y=y_att,
-                size=attributes[go.size],
-                color=attributes[go.color],
-                title=labels[go.title],
-                labels=graph_labels,
-                height=height
-            )
+            # # create the scatter plot
+            # fig = px.scatter(
+            #     df,
+            #     x=x_att,
+            #     y=y_att,
+            #     size=attributes[go.size],
+            #     color=attributes[go.color],
+            #     title=labels[go.title],
+            #     labels=graph_labels,
+            #     height=height
+            # )
             # if not os.path.exists("src/plotting/assets/images"):
             #     os.mkdir("src/plotting/assets/images/")
-            pio.write_image(fig, "src/plotting/assets/images/graph.png")
+            temp = joblib.load("src/plotting/assets/images/fig.pkl")
+            pio.write_image(temp, "src/plotting/assets/images/graph.png")
             # return True
-            # temp = joblib.load("src/plotting/assets/images/fig.pkl")
             # -----------------------
             # plot_img = to_image(fig)
             # -----------------------
