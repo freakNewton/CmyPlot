@@ -2,8 +2,8 @@ import pandas as pd
 import plotly
 import random
 
-from plotting.pages.graph import graph_callbacks as gc
-from plotting.pages.graph.components import graph_options as go
+from src.plotting.pages.graph import graph_callbacks as gc
+from src.plotting.pages.graph.components import graph_options as go
 
 df = pd.DataFrame({
     'x1': [0, 1, 2],

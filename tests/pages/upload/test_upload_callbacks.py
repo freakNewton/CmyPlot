@@ -1,6 +1,6 @@
 import pandas as pd
 
-from plotting.pages.upload import upload_callbacks as uc
+from src.plotting.pages.upload import upload_callbacks as uc
 
 df = pd.DataFrame({
     'x1': [0, 1, 2],
