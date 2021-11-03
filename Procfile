@@ -1,1 +1,1 @@
-web: gunicorn src.plotting.index:server
+web: waitress-serve src.plotting.index:server
