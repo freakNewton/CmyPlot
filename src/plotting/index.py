@@ -3,7 +3,7 @@ from src.plotting.app import app
 import argparse
 
 # local imports
-from environment.settings import APP_PORT, APP_DEBUG, DEV_TOOLS_PROPS_CHECK
+from src.plotting.environment.settings import APP_PORT, APP_DEBUG, DEV_TOOLS_PROPS_CHECK
 
 # initializes all callbacks
 import utils.routes
