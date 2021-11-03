@@ -151,13 +151,10 @@ https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-
      ## Roadmap
        - [List of Roadmap and their corresponding open issues](https://github.com/bradley-erickson/CmyPlot/issues/48)
 ## Team Members
-[Bradley Erickson](https://github.com/bradley-erickson)
+[Simran Bosamiya](https://github.com/BosamiyaSimran)
 
-[Aakriti Aakriti](https://github.com/aakriti0fnu)
+[Nisarg Shah](https://github.com/freakNewton)
 
-[Sharath Kumar](https://github.com/sharathKV)
+[Parth Thosani](https://github.com/thosaniparth)
 
-[AshwinKumarMuniswamy](https://github.com/AshwinKumarMuniswamy)
-
-[Jainam Shah](https://github.com/j-08-shah)
 
