@@ -3,8 +3,8 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 
 # local imports
-from plotting.pages.graph.components import graph_options
-from plotting.utils.constants import graph_config
+from src.plotting.pages.graph.components import graph_options
+from src.plotting.utils.constants import graph_config
 
 # set constants
 path = '/graph'
