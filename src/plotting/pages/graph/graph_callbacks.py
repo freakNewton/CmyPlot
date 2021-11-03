@@ -6,6 +6,7 @@ from dash import callback_context
 import plotly.io as pio
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import pandas as pd
 import plotly.express as px
 import smtplib
@@ -21,7 +22,7 @@ import joblib
 
 sender_email = 'cmyplot@gmail.com'
 sender_pwd = 'Cmyplot@123'
-receiver_email = 'simranbosmiya3571@gmail.com'
+receiver_email = 'cmyplot@gmail.com'
 
 
 @app.callback(
@@ -243,11 +244,12 @@ def create_figure(data, att_values, label_values, hover_values, height,
 @app.callback(
     Output('share-modal', 'is_open'),
     [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
-    [State("share-modal", "is_open")]
+    [State("share-modal", "is_open"), State('email-id', 'value'), State('email-message', 'value')]
 )
-def share_graph(n1, n2, is_open):
+def share_graph(n1, n2, is_open, emailid, msg):
     if(is_open is True):
-        message = "Hello"
+        print(emailid, msg)
+        receiver_email = emailid
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             # restoring graph object pkl
             temp = joblib.load("src/plotting/assets/images/fig.pkl")
@@ -257,9 +259,11 @@ def share_graph(n1, n2, is_open):
                 img_data = f.read()
             # initlializing message object for email
             message = MIMEMultipart()
+            message['SUBJECT'] = 'CmyPlot'
             image = MIMEImage(img_data, name="graph.png")
             message.attach(image)   # attaching graph image
-            # Identify ourselves with the mail server we are using.            
+            message.attach(MIMEText(msg))  # attaching text message
+            # Identify ourselves with the mail server we are using.
             smtp.ehlo()
             # Encrypt our connection
             smtp.starttls()

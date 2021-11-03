@@ -43,9 +43,38 @@ layout = dbc.Container(
                                 dbc.Modal(
                                     [
                                         dbc.ModalHeader(
-                                            dbc.ModalTitle("Share")
+                                            dbc.ModalTitle("Share via email")
                                         ),
-                                        dbc.ModalBody("Share"),
+                                        dbc.ModalBody(
+                                           [
+                                                dbc.Row(
+                                                    [
+                                                        dbc.Label("Email", html_for="email-row", width=2),
+                                                        dbc.Col(
+                                                            dbc.Input(
+                                                                type="email", id='email-id', placeholder="Enter email"
+                                                            ),
+                                                            # width=10,
+                                                        ),
+                                                    ],
+                                                    className="mb-3",
+                                                 ),
+                                                dbc.Row(
+                                                    [
+                                                        dbc.Label("Message", html_for="message-row", width=2),
+                                                        dbc.Col(
+                                                            dbc.Input(
+                                                                type="text",
+                                                                id="email-message",
+                                                                placeholder="Enter message",
+                                                            ),
+                                                            # width=10,
+                                                        ),
+                                                    ],
+                                                    className="mb-3",
+                                                )
+                                            ]
+                                        ),
                                         dbc.ModalFooter(
                                             dbc.Button(
                                                 "Send", id="send-button",
