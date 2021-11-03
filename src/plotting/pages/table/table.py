@@ -3,7 +3,7 @@ from dash import dash_table, html
 import dash_bootstrap_components as dbc
 
 # local imports
-from plotting.utils import color
+from src.plotting.utils import color
 
 # set constants
 path = '/table'

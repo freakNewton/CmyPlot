@@ -3,7 +3,7 @@ from dash import html
 import dash_bootstrap_components as dbc
 
 # local imports
-from plotting.pages.upload import upload
+from src.plotting.pages.upload import upload
 
 # set contansts
 path = '/home'

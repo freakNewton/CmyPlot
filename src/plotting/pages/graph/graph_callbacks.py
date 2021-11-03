@@ -6,11 +6,11 @@ import pandas as pd
 import plotly.express as px
 
 # local imports
-from plotting.app import app
-from plotting.layout.layout import store_id
-from plotting.utils import functions as func
-from plotting.pages.graph.components import graph_options as go
-from plotting.pages.graph import graph
+from src.plotting.app import app
+from src.plotting.layout.layout import store_id
+from src.plotting.utils import functions as func
+from src.plotting.pages.graph.components import graph_options as go
+from src.plotting.pages.graph import graph
 
 
 @app.callback(

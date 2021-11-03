@@ -3,8 +3,8 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 
 # local imports
-from plotting.pages.table import table
-from plotting.pages.graph import graph
+from src.plotting.pages.table import table
+from src.plotting.pages.graph import graph
 
 # set constants
 path = '/upload'

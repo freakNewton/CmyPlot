@@ -6,10 +6,10 @@ from dash.exceptions import PreventUpdate
 import pandas as pd
 
 # local imports
-from plotting.app import app
-from plotting.pages.upload import upload
-from plotting.layout.layout import store_id
-from plotting.utils import functions as func
+from src.plotting.app import app
+from src.plotting.pages.upload import upload
+from src.plotting.layout.layout import store_id
+from src.plotting.utils import functions as func
 
 
 @app.callback(
