@@ -149,7 +149,7 @@ https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-
        `http://127.0.0.1:8085/`
 
      ## Roadmap
-       - [List of Roadmap and their corresponding open issues](https://github.com/bradley-erickson/CmyPlot/issues/48)
+       - [List of Roadmap and their corresponding open issues](https://github.com/thosaniparth/CmyPlot/issues/21)
 ## Team Members
 [Simran Bosamiya](https://github.com/BosamiyaSimran)
 
