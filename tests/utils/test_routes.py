@@ -22,26 +22,26 @@ def test_navbar_toggle():
 
 def test_handle_routes():
 
-    pathname = '/'
+    pathname = "/"
     output = handle_routes.__wrapped__(pathname)
     assert output == home.layout
 
-    pathname = '/home'
+    pathname = "/home"
     output = handle_routes.__wrapped__(pathname)
     assert output == home.layout
 
-    pathname = '/upload'
+    pathname = "/upload"
     output = handle_routes.__wrapped__(pathname)
     assert output == upload.layout
 
-    pathname = '/table'
+    pathname = "/table"
     output = handle_routes.__wrapped__(pathname)
     assert output == table.layout
 
-    pathname = '/graph'
+    pathname = "/graph"
     output = handle_routes.__wrapped__(pathname)
     assert output == graph.layout
 
-    pathname = 'totally-fake-path'
+    pathname = "totally-fake-path"
     output = handle_routes.__wrapped__(pathname)
     assert output == bad_url.layout

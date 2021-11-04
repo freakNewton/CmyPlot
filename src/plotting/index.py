@@ -12,34 +12,31 @@ import pages.table.table_callbacks
 import pages.graph.graph_callbacks
 
 
-
 import dash_auth
 import plotly
-import dash 
+import dash
+
 # initialize services
 server = app.server
 
 
 VALID_USERNAME_PASSWORD_PAIRS = {
-    'hello': 'world',
-    'thosaniparth':'pthosan',
-    'shahnisarg':'nsshah05'
+    "hello": "world",
+    "thosaniparth": "pthosan",
+    "shahnisarg": "nsshah05",
 }
-auth = dash_auth.BasicAuth(
-    app,
-    VALID_USERNAME_PASSWORD_PAIRS
-)
+auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 # site endpoint
-if __name__ == '__main__':
-    my_parser = argparse.ArgumentParser(description='CmyPlot')
+if __name__ == "__main__":
+    my_parser = argparse.ArgumentParser(description="CmyPlot")
     my_parser.add_argument(
-        '--host',
-        action='store',
-        default='127.0.0.1',
+        "--host",
+        action="store",
+        default="127.0.0.1",
         type=str,
-        metavar='host address',
-        help='Host address where the website has to be deployed'
+        metavar="host address",
+        help="Host address where the website has to be deployed",
     )
     args = my_parser.parse_args()
     app.run_server(
@@ -47,6 +44,5 @@ if __name__ == '__main__':
         port=APP_PORT,
         debug=True,
         dev_tools_props_check=DEV_TOOLS_PROPS_CHECK,
-        dev_tools_hot_reload=False
+        dev_tools_hot_reload=False,
     )
-    

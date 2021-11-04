@@ -35,3 +35,8 @@ tenacity==8.0.1
 toml==0.10.2
 Werkzeug==2.0.1
 setuptools~=57.4.0
+black
+dash_auth==1.4.1
+joblib==1.1.0
+kaleido==0.2.1
+isort
