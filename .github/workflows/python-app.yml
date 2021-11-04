@@ -26,6 +26,9 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install -e . plotting
+    - name: Lint with black
+      run: |
+        black --check .
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -38,3 +41,21 @@ jobs:
         coverage run -m pytest
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
+     
+    - name: Lint with isort
+      run: |
+        pip install isort
+        isort .
+        ...
+
+    - name: Lint with pycodestyle
+      run: |
+        pip install pycodestyle
+        pycodestyle .
+        ...
+
+    - name: Lint with mypy
+      run: |
+        pip install mypy
+        mypy .
+        ...
