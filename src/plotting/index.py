@@ -11,8 +11,24 @@ import src.plotting.pages.upload.upload_callbacks
 import src.plotting.pages.table.table_callbacks
 import src.plotting.pages.graph.graph_callbacks
 
+
+
+import dash_auth
+import plotly
+import dash 
 # initialize services
 server = app.server
+
+
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'hello': 'world',
+    'thosaniparth':'pthosan',
+    'shahnisarg':'nsshah05'
+}
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
 
 # site endpoint
 if __name__ == '__main__':
@@ -29,6 +45,8 @@ if __name__ == '__main__':
     app.run_server(
         host=args.host,
         port=APP_PORT,
-        debug=APP_DEBUG,
-        dev_tools_props_check=DEV_TOOLS_PROPS_CHECK
+        debug=True,
+        dev_tools_props_check=DEV_TOOLS_PROPS_CHECK,
+        dev_tools_hot_reload=False
     )
+    
