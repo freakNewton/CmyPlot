@@ -35,37 +35,57 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
 
   <tr style="background: #010203 ">
     <td valign="left"> 
-      <p style="color: #FF7A59"> 1.This is the main Cmyplot web page 
+      <p style="color: #FF7A59"> 1.This is the authentication for using CmyPlot 
       </p>
-      <a href="./docs/images/home_page.png"> 
-        <img src="./docs/images/home_page.png" >      
+      <a href="./docs/images/authentication_usr_pwd.png"> 
+        <img src="./docs/images/authentication_usr_pwd.png" >      
       </a>
     </td>
     <td valign="left"> 
-      <p style="color: #FF7A59"> 2.You have an option to upload your csv file 
+      <p style="color: #FF7A59"> 2.This is the main Cmyplot web page
+      </p>
+      <a href="./docs/images/home_page.png">
+        <img src="./docs/images/home_page.png"> 
+      </a>
+    </td>
+  </tr>
+
+<table border="2" bordercolorlight="#b9dcff" bordercolordark="#006fdd">
+
+  <tr style="background: #010203 ">
+    <td valign="left"> 
+      <p style="color: #FF7A59"> 3.ou have an option to upload your csv file 
+        by Drag and drop or click 
+      </p>
+      <a href="./docs/images/pre_upload.png"> 
+        <img src="./docs/images/pre_upload.png" >      
+      </a>
+    </td>
+    <td valign="left"> 
+      <p style="color: #FF7A59"> 4.You have an option to upload your csv file 
         by Drag and drop or click
       </p>
-      <a href="./docs/images/pre_upload.png">
-        <img src="./docs/images/pre_upload.png"> 
+      <a href="./docs/images/post_upload.png">
+        <img src="./docs/images/post_upload.png"> 
       </a>
     </td>
   </tr>
   
   <tr style="background: #010203;"> 
     <td valign="left">
-      <p style="color: #FF7A59"> 3.Once the file is uploaded, you can choose
-         to visulaize using either table or graph
+      <p style="color: #FF7A59"> 5.For table, you could use 
+      filters to sort the data as you want
       </p>  
-      <a href="./docs/images/post_upload.png">
-        <img src="./docs/images/post_upload.png">    
+      <a href="./docs/images/table.png">
+        <img src="./docs/images/table.png">    
       </a>
     </td>
     <td valign="left"> 
-      <p style="color: #FF7A59"> 4.For table, you could use 
-      filters to sort the data as you want
+      <p style="color: #FF7A59"> 6.For table, you could use 
+      number of rows you want to display per page
       </p>
-      <a href="./docs/images/table.png">
-        <img src="./docs/images/table.png">          
+      <a href="./docs/images/row_count_table.png">
+        <img src="./docs/images/row_count_table.png">          
       </a>
     </td>
 
@@ -73,14 +93,14 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
   
   <tr style="background: #010203;"> 
     <td valign="left">
-     <p style="color: #FF7A59"> 5.Table representation of the data
+     <p style="color: #FF7A59"> 7.Table representation of the data
       </p>
      <a href="./docs/images/table_filtered.png">
         <img src="./docs/images/table_filtered.png"> 
       </a> 
     </td> 
     <td valign="left">
-     <p style="color: #FF7A59"> 6.Graph representation of the data
+     <p style="color: #FF7A59"> 8.Graph representation of the data
       </p>
      <a href="./docs/images/graph_filled.png">
         <img src="./docs/images/graph_filled.png"> 
@@ -164,5 +184,7 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
 [Nisarg Shah](https://github.com/freakNewton)
 
 [Parth Thosani](https://github.com/thosaniparth)
+  
+[Parth Jinturkar](https://github.com/ParthJinturkar)
 
 
