@@ -41,3 +41,21 @@ jobs:
         coverage run -m pytest
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v1
+     
+    - name: Lint with isort
+      run: |
+        pip install isort
+        isort .
+        ...
+
+    - name: Lint with pycodestyle
+      run: |
+        pip install pycodestyle
+        pycodestyle .
+        ...
+
+    - name: Lint with mypy
+      run: |
+        pip install mypy
+        mypy .
+        ...
