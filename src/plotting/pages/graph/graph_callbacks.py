@@ -252,7 +252,10 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
 
 @app.callback(
     Output("share-modal", "is_open"),
-    [Input("share-button", "n_clicks"), Input("send-button", "n_clicks")],
+    [
+        Input("share-button", "n_clicks"), 
+        Input("send-button", "n_clicks")
+    ],
     [
         State("share-modal", "is_open"),
         State("email-id", "value"),
@@ -283,10 +286,10 @@ def share_graph(n1, n2, is_open, emailid, msg):
             # Reidentify our connection as encrypted with the mail server
             smtp.ehlo()
             smtp.login(sender_email, sender_pwd)
-            smtp.sendmail(sender_email, receiver_email, message.as_string())
+            error_dict=smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
             # os.truncate("src/plotting/assets/images/graph.png")
             # os.truncate("src/plotting/assets/images/fig.pkl")
     if n1 or n2:
-        return not is_open
-    return is_open
+        return not is_open,error_dict
+    return is_open,error_dict
