@@ -1,3 +1,2 @@
-
 def test_sample():
-    assert 100*2 == 200
+    assert 100 * 2 == 200

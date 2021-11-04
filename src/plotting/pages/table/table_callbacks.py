@@ -9,14 +9,15 @@ from plotting.utils.functions import fetch_columns_options
 from plotting.pages.table import table
 from plotting.layout.layout import store_id
 
+
 @app.callback(
-    Output(table.table_id, 'data'),
-    Output(table.table_id, 'columns'),
+    Output(table.table_id, "data"),
+    Output(table.table_id, "columns"),
     Input(table.table_id, "page_current"),
     Input(table.table_id, "page_size"),
-    Input(store_id, 'data')
+    Input(store_id, "data"),
 )
-def initialize_table_data(page_current,page_size,data):
+def initialize_table_data(page_current, page_size, data):
     """Handle setting table data
 
     Parameters
@@ -33,21 +34,21 @@ def initialize_table_data(page_current,page_size,data):
         raise PreventUpdate
     # print(type(data['df']))
 
-    cols = fetch_columns_options(data['df'], table=True)
+    cols = fetch_columns_options(data["df"], table=True)
     # data = data.iloc[
     #     page_current*page_size:(page_current+ 1)*page_size
     # ].to_dict('records')
-    temp = data['df'][page_current*page_size:(page_current+ 1)*page_size]
+    temp = data["df"][page_current * page_size : (page_current + 1) * page_size]
     # length = len(data['df'])
-    print(len(temp), len(data['df']))
+    print(len(temp), len(data["df"]))
 
-    return temp,cols
+    return temp, cols
 
 
 @app.callback(
-    Output(table.table_id_x, 'data'),
-    Output(table.table_id_x, 'columns'),
-    Input(store_id, 'data')
+    Output(table.table_id_x, "data"),
+    Output(table.table_id_x, "columns"),
+    Input(store_id, "data"),
 )
 def initialize_table_data(data):
     """Handle setting table data
@@ -66,12 +67,13 @@ def initialize_table_data(data):
         raise PreventUpdate
     # print(type(data['df']))
 
-    cols = fetch_columns_options(data['df'], table=True)
+    cols = fetch_columns_options(data["df"], table=True)
     # data = data.iloc[
     #     page_current*page_size:(page_current+ 1)*page_size
     # ].to_dict('records')
 
-    return data['df'],cols
+    return data["df"], cols
+
 
 # @app.callback(
 #     Output('page_count','children'),
@@ -100,21 +102,21 @@ def initialize_table_data(data):
 
 
 @app.callback(
-    Output(table.table_id, 'page_count'),
-    Input(table.use_page_count, 'value'),
-    Input(table.page_count, 'value'),
+    Output(table.table_id, "page_count"),
+    Input(table.use_page_count, "value"),
+    Input(table.page_count, "value"),
 )
 def update_table(use_page_count, page_count_value):
     if len(use_page_count) == 0 or page_count_value is None:
         return None
     return page_count_value
 
+
 @app.callback(
-    Output(table.table_id,'page_size'),
-    Input(table.page_size,'value'),
+    Output(table.table_id, "page_size"),
+    Input(table.page_size, "value"),
 )
 def update_table(page_size):
     if page_size == None:
         raise PreventUpdate
     return page_size
-

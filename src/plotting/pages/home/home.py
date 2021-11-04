@@ -6,41 +6,32 @@ import dash_bootstrap_components as dbc
 from plotting.pages.upload import upload
 
 # set contansts
-path = '/home'
-title = 'Home'
+path = "/home"
+title = "Home"
 layout = dbc.Container(
     [
         html.Div(
             dbc.Container(
                 [
                     html.H1(
-                        [
-                            html.I(className='far fa-chart-bar pr-1'),
-                            'CmyPlot'
-                        ],
-                        className='display-3'
+                        [html.I(className="far fa-chart-bar pr-1"), "CmyPlot"],
+                        className="display-3",
                     ),
                     html.P(
-                        'Open source online graphing tool.',
-                        className='lead',
+                        "Open source online graphing tool.",
+                        className="lead",
                     ),
-                    html.Hr(className='my-2'),
+                    html.Hr(className="my-2"),
+                    html.P("More text here."),
                     html.P(
-                        'More text here.'
-                    ),
-                    html.P(
-                        dbc.Button(
-                            'Upload data',
-                            color='primary',
-                            href=upload.path
-                        ),
-                        className='lead'
+                        dbc.Button("Upload data", color="primary", href=upload.path),
+                        className="lead",
                     ),
                 ],
                 fluid=True,
-                className='py-3',
+                className="py-3",
             ),
-            className='my-2 bg-light rounded-3',
+            className="my-2 bg-light rounded-3",
         )
     ]
 )
