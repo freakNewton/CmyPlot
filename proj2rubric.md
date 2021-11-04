@@ -18,7 +18,7 @@
 |.5|Use of code formatters. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |.5|Use of style checkers | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | https://github.com/thosaniparth/CmyPlot/blob/main/README.md |
-|.5|test cases exist  | a lot of test cases exist covering almost all the functionalities. (https://github.com/thosaniparth/CmyPlot/blob/main/tests/keyword_extraction_modules_test.py) |
+|.5|test cases exist  | a lot of test cases exist covering almost all the functionalities. (https://github.com/thosaniparth/CmyPlot/tree/main/tests) |
 |.5|Use of code coverage  | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/code_cov.yml |
 |.5|other automated analysis tools  | There are two additional automated analysis tools 1. Close as a feature (https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/close_as_a_feature.yml) 2. Respost- adding comment to new issue events (https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/Respost.yml) |
 |.5|test cases:.a large proportion of the issues related to handling failing cases. | if a test case fails, open an issue and fix it, evidence( Add example) |
