@@ -1,9 +1,9 @@
-from plotting.utils.routes import navbar_toggle, handle_routes
-from plotting.pages.home import home
 from plotting.pages.bad_url import bad_url
-from plotting.pages.upload import upload
-from plotting.pages.table import table
 from plotting.pages.graph import graph
+from plotting.pages.home import home
+from plotting.pages.table import table
+from plotting.pages.upload import upload
+from plotting.utils.routes import handle_routes, navbar_toggle
 
 
 def test_navbar_toggle():

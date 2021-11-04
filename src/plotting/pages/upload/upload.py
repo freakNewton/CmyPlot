@@ -1,10 +1,10 @@
 # package imports
-from dash import dcc, html
 import dash_bootstrap_components as dbc
+from dash import dcc, html
 
+from plotting.pages.graph import graph
 # local imports
 from plotting.pages.table import table
-from plotting.pages.graph import graph
 
 # set constants
 path = "/upload"

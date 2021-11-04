@@ -1,6 +1,7 @@
 # package imports
 import os
 from os.path import join
+
 from dotenv import load_dotenv
 
 # load in dotenv file

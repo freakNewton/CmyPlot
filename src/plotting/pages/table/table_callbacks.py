@@ -4,9 +4,9 @@ from dash.exceptions import PreventUpdate
 
 # local imports
 from plotting.app import app
-from plotting.utils.functions import fetch_columns_options
-from plotting.pages.table import table
 from plotting.layout.layout import store_id
+from plotting.pages.table import table
+from plotting.utils.functions import fetch_columns_options
 
 
 @app.callback(

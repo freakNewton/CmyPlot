@@ -1,14 +1,15 @@
 # package imports
 import base64
 import io
+
+import pandas as pd
 from dash.dependencies import ALL, Input, Output, State
 from dash.exceptions import PreventUpdate
-import pandas as pd
 
 # local imports
 from plotting.app import app
-from plotting.pages.upload import upload
 from plotting.layout.layout import store_id
+from plotting.pages.upload import upload
 from plotting.utils import functions as func
 
 

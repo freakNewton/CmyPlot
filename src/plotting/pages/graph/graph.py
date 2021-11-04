@@ -1,6 +1,6 @@
 # package imports
-from dash import dcc, html
 import dash_bootstrap_components as dbc
+from dash import dcc, html
 
 # local imports
 from plotting.pages.graph.components import graph_options

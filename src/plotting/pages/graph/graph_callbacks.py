@@ -1,16 +1,16 @@
 # package imports
-from dash.dependencies import ALL, Input, Output, State
-from dash.exceptions import PreventUpdate
-from dash import callback_context
 import pandas as pd
 import plotly.express as px
+from dash import callback_context
+from dash.dependencies import ALL, Input, Output, State
+from dash.exceptions import PreventUpdate
 
 # local imports
 from plotting.app import app
 from plotting.layout.layout import store_id
-from plotting.utils import functions as func
-from plotting.pages.graph.components import graph_options as go
 from plotting.pages.graph import graph
+from plotting.pages.graph.components import graph_options as go
+from plotting.utils import functions as func
 
 
 @app.callback(

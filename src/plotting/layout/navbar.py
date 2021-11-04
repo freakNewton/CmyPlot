@@ -1,12 +1,12 @@
 # package imports
-from dash import html
 import dash_bootstrap_components as dbc
+from dash import html
 
+from plotting.pages.graph import graph
 # local imports
 from plotting.pages.home import home
-from plotting.pages.upload import upload
 from plotting.pages.table import table
-from plotting.pages.graph import graph
+from plotting.pages.upload import upload
 
 # set contansts
 toggler = "id-navbar-toggler"

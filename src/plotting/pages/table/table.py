@@ -1,6 +1,6 @@
 # package imports
-from dash import dash_table, html
 import dash_bootstrap_components as dbc
+from dash import dash_table, html
 
 # local imports
 from plotting.utils import color

@@ -1,8 +1,9 @@
 # package imports
+import os
+
 import dash
 import dash_bootstrap_components as dbc
 from flask_caching import Cache
-import os
 
 # local imports
 from plotting.layout.layout import layout
