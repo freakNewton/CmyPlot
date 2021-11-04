@@ -44,5 +44,5 @@ if __name__ == "__main__":
         port=APP_PORT,
         debug=True,
         dev_tools_props_check=DEV_TOOLS_PROPS_CHECK,
-        dev_tools_hot_reload=False
+        dev_tools_hot_reload=False,
     )

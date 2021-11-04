@@ -11,6 +11,7 @@ import pandas as pd
 import plotly.express as px
 import smtplib
 import numpy as np
+
 # from pandas.api.types import is_integer_dtype
 # local imports
 from plotting.app import app
@@ -20,10 +21,9 @@ from plotting.pages.graph.components import graph_options as go
 from plotting.pages.graph import graph
 import joblib
 
-sender_email = 'cmyplot@gmail.com'
-sender_pwd = 'Cmyplot@123'
-receiver_email = 'cmyplot@gmail.com'
-
+sender_email = "cmyplot@gmail.com"
+sender_pwd = "Cmyplot@123"
+receiver_email = "cmyplot@gmail.com"
 
 
 @app.callback(
@@ -84,7 +84,7 @@ def fetch_columns_from_data(data):
         raise PreventUpdate
     # print(data, type(()))
     # dcc.Store(id="uploaddata", data=json.dumps(data), storage_type='session')
-    options = func.fetch_columns_options(data['df'])
+    options = func.fetch_columns_options(data["df"])
 
     return [options for i in range(len(go.attributes))]
 
@@ -116,24 +116,23 @@ def fetch_hover_columns_from_data(data):
 
 
 @app.callback(
-    Output(graph.graph_id, 'figure'),
-    Output(graph.x_mean_id, component_property='children'),
-    Output(graph.x_median_id, component_property='children'),
-    Output(graph.x_mode_id, component_property='children'),
-    Output(graph.y_mean_id, component_property='children'),
-    Output(graph.y_median_id, component_property='children'),
-    Output(graph.y_mode_id, component_property='children'),
-    Output(graph.x_std_id, component_property='children'),
-    Output(graph.y_std_id, component_property='children'),
-    Input(store_id, 'data'),
-    Input({'type': go.att_drop, 'index': ALL}, 'value'),
-    Input({'type': go.label_input, 'index': ALL}, 'value'),
-    Input({'type': go.hover_input, 'index': ALL}, 'value'),
-    Input(go.graph_height, 'value'),
-    Input(go.graph_type, 'value')
+    Output(graph.graph_id, "figure"),
+    Output(graph.x_mean_id, component_property="children"),
+    Output(graph.x_median_id, component_property="children"),
+    Output(graph.x_mode_id, component_property="children"),
+    Output(graph.y_mean_id, component_property="children"),
+    Output(graph.y_median_id, component_property="children"),
+    Output(graph.y_mode_id, component_property="children"),
+    Output(graph.x_std_id, component_property="children"),
+    Output(graph.y_std_id, component_property="children"),
+    Input(store_id, "data"),
+    Input({"type": go.att_drop, "index": ALL}, "value"),
+    Input({"type": go.label_input, "index": ALL}, "value"),
+    Input({"type": go.hover_input, "index": ALL}, "value"),
+    Input(go.graph_height, "value"),
+    Input(go.graph_type, "value"),
 )
-def create_figure(data, att_values, label_values, hover_values, height, 
-                  graph_type):
+def create_figure(data, att_values, label_values, hover_values, height, graph_type):
     """Handle options for graph option dropdowns
 
     Parameters
@@ -251,26 +250,30 @@ def create_figure(data, att_values, label_values, hover_values, height,
 
 
 @app.callback(
-    Output('share-modal', 'is_open'),
-    [Input('share-button', 'n_clicks'), Input('send-button', 'n_clicks')],
-    [State("share-modal", "is_open"), State('email-id', 'value'), State('email-message', 'value')]
+    Output("share-modal", "is_open"),
+    [Input("share-button", "n_clicks"), Input("send-button", "n_clicks")],
+    [
+        State("share-modal", "is_open"),
+        State("email-id", "value"),
+        State("email-message", "value"),
+    ],
 )
 def share_graph(n1, n2, is_open, emailid, msg):
-    if(is_open is True):
+    if is_open is True:
         print(emailid, msg)
         receiver_email = emailid
-        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             # restoring graph object pkl
             temp = joblib.load("src/plotting/assets/images/fig.pkl")
             pio.write_image(temp, "src/plotting/assets/images/graph.png")
             # saving graph image locally
-            with open("src/plotting/assets/images/graph.png", 'rb') as f:
+            with open("src/plotting/assets/images/graph.png", "rb") as f:
                 img_data = f.read()
             # initlializing message object for email
             message = MIMEMultipart()
-            message['SUBJECT'] = 'CmyPlot'
+            message["SUBJECT"] = "CmyPlot"
             image = MIMEImage(img_data, name="graph.png")
-            message.attach(image)   # attaching graph image
+            message.attach(image)  # attaching graph image
             message.attach(MIMEText(msg))  # attaching text message
             # Identify ourselves with the mail server we are using.
             smtp.ehlo()
@@ -281,6 +284,6 @@ def share_graph(n1, n2, is_open, emailid, msg):
             smtp.login(sender_email, sender_pwd)
             smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
-    if(n1 or n2):
+    if n1 or n2:
         return not is_open
     return is_open
