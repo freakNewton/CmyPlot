@@ -28,7 +28,7 @@ jobs:
         pip install -e . plotting
     - name: Lint with black
       run: |
-        black --check .
+         python3 -m black src/plotting
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
