@@ -1,4 +1,5 @@
 # package imports
+import os
 import statistics
 from dash.dependencies import ALL, Input, Output, State
 from dash.exceptions import PreventUpdate
@@ -248,7 +249,7 @@ def create_figure(data, att_values, label_values, hover_values, height,
 )
 def share_graph(n1, n2, is_open, emailid, msg):
     if(is_open is True):
-        print(emailid, msg)
+        # print(emailid, msg)
         receiver_email = emailid
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             # restoring graph object pkl
@@ -272,6 +273,8 @@ def share_graph(n1, n2, is_open, emailid, msg):
             smtp.login(sender_email, sender_pwd)
             smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
+            os.remove("src/plotting/assets/images/graph.png")
+            os.remove("src/plotting/assets/images/fig.pkl")
     if(n1 or n2):
         return not is_open
     return is_open
