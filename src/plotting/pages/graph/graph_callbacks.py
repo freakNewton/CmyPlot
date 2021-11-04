@@ -285,8 +285,8 @@ def share_graph(n1, n2, is_open, emailid, msg):
             smtp.login(sender_email, sender_pwd)
             smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
-            os.remove("src/plotting/assets/images/graph.png")
-            os.remove("src/plotting/assets/images/fig.pkl")
+            # os.truncate("src/plotting/assets/images/graph.png")
+            # os.truncate("src/plotting/assets/images/fig.pkl")
     if n1 or n2:
         return not is_open
     return is_open
