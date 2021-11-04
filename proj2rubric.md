@@ -16,7 +16,7 @@
 |.5|Use of syntax checkers. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |1|Issues reports: there are many  | https://github.com/thosaniparth/CmyPlot/issues |
 |.5|Use of code formatters. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/code_formatter.yml |
-|.5|Use of style checkers | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/style_checker.yml |
+|.5|Use of style checkers | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | https://github.com/thosaniparth/CmyPlot/blob/main/README.md |
 |.5|test cases exist  | a lot of test cases exist covering almost all the functionalities. (https://github.com/thosaniparth/CmyPlot/blob/main/tests/keyword_extraction_modules_test.py) |
 |.5|Use of code coverage  | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/code_cov.yml |
