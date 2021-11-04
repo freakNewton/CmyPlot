@@ -40,7 +40,7 @@ def initialize_table_data(page_current, page_size, data):
     # ].to_dict('records')
     temp = data["df"][page_current * page_size : (page_current + 1) * page_size]
     # length = len(data['df'])
-    print(len(temp), len(data["df"]))
+    # print(len(temp), len(data['df']))
 
     return temp, cols
 

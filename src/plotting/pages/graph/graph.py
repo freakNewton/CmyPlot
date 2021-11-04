@@ -36,8 +36,63 @@ layout = dbc.Container(
                 dbc.Col(
                     [
                         dbc.Row(
-                            dcc.Graph(id=graph_id, config=graph_config),
-                            className="col-lg-9",
+                            html.Div([
+                                dbc.Button('Share', id='share-button',
+                                           n_clicks=0,
+                                           className="btn, btn-primary"),
+                                dbc.Modal(
+                                    [
+                                        dbc.ModalHeader(
+                                            dbc.ModalTitle("Share via email")
+                                        ),
+                                        dbc.ModalBody(
+                                           [
+                                                dbc.Row(
+                                                    [
+                                                        dbc.Label("Email", html_for="email-row", width=2),
+                                                        dbc.Col(
+                                                            dbc.Input(
+                                                                type="email", id='email-id', placeholder="Enter email"
+                                                            ),
+                                                            # width=10,
+                                                        ),
+                                                    ],
+                                                    className="mb-3",
+                                                 ),
+                                                dbc.Row(
+                                                    [
+                                                        dbc.Label("Message", html_for="message-row", width=2),
+                                                        dbc.Col(
+                                                            dbc.Input(
+                                                                type="text",
+                                                                id="email-message",
+                                                                placeholder="Enter message",
+                                                            ),
+                                                            # width=10,
+                                                        ),
+                                                    ],
+                                                    className="mb-3",
+                                                )
+                                            ]
+                                        ),
+                                        dbc.ModalFooter(
+                                            dbc.Button(
+                                                "Send", id="send-button",
+                                                className="ms-auto, btn, btn-primary", n_clicks=0
+                                            )
+                                        )
+                                    ],
+                                    id="share-modal",
+                                    is_open=False
+                                )
+                            ]),
+                            className='float-right'
+                        ),
+                        dbc.Row(
+                            dcc.Graph(
+                                id=graph_id,
+                                config=graph_config
+                            )
                         ),
                         dbc.Row(
                             [
