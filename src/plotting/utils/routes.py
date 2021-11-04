@@ -12,9 +12,9 @@ from plotting.pages.graph import graph
 
 
 @app.callback(
-    Output(navbar.collapse, 'is_open'),
-    Input(navbar.toggler, 'n_clicks'),
-    State(navbar.collapse, 'is_open')
+    Output(navbar.collapse, "is_open"),
+    Input(navbar.toggler, "n_clicks"),
+    State(navbar.collapse, "is_open"),
 )
 def navbar_toggle(clicks, is_open):
     """Handle the collapsible function of the navbar
@@ -36,10 +36,7 @@ def navbar_toggle(clicks, is_open):
     return is_open
 
 
-@app.callback(
-    Output('page-content', 'children'),
-    Input('url', 'pathname')
-)
+@app.callback(Output("page-content", "children"), Input("url", "pathname"))
 def handle_routes(pathname):
     """Handle routing the application from page to page
 
@@ -54,7 +51,7 @@ def handle_routes(pathname):
             Content of page to return to the view
     """
 
-    if pathname == '/' or pathname == home.path:
+    if pathname == "/" or pathname == home.path:
         return home.layout
     elif pathname == upload.path:
         return upload.layout

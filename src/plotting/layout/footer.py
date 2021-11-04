@@ -7,21 +7,15 @@ footer = html.Footer(
     dbc.Container(
         [
             html.A(
-                [
-                    html.I(className='fab fa-github pr-1'),
-                    'Github'
-                ],
-                href='https://github.com/bradley-erickson/CmyPlot',
-                target='_blank'
+                [html.I(className="fab fa-github pr-1"), "Github"],
+                href="https://github.com/bradley-erickson/CmyPlot",
+                target="_blank",
             ),
             html.Br(),
             html.A(
-                [
-                    html.I(className='fas fa-at pr-1'),
-                    'Citation information'
-                ],
-                href='https://doi.org/10.5281/zenodo.5521547',
-                target='_blank'
+                [html.I(className="fas fa-at pr-1"), "Citation information"],
+                href="https://doi.org/10.5281/zenodo.5521547",
+                target="_blank",
             ),
         ]
     )

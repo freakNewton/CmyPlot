@@ -14,9 +14,9 @@ from plotting.pages.graph import graph
 
 
 @app.callback(
-    Output(go.collapse, 'is_open'),
-    Input(go.toggler, 'n_clicks'),
-    State(go.collapse, 'is_open')
+    Output(go.collapse, "is_open"),
+    Input(go.toggler, "n_clicks"),
+    State(go.collapse, "is_open"),
 )
 def handle_accordian_collapse(go_clicks, go_open):
     """Handle toggling the various accordian collapses
@@ -40,7 +40,7 @@ def handle_accordian_collapse(go_clicks, go_open):
     if not ctx.triggered:
         raise PreventUpdate
     else:
-        button_id = ctx.triggered[0]['prop_id'].split('.')[0]
+        button_id = ctx.triggered[0]["prop_id"].split(".")[0]
 
     # Open specific accordian item
     if button_id == go.toggler and go_clicks:
@@ -50,8 +50,7 @@ def handle_accordian_collapse(go_clicks, go_open):
 
 
 @app.callback(
-    Output({'type': go.att_drop, 'index': ALL}, 'options'),
-    Input(store_id, 'data')
+    Output({"type": go.att_drop, "index": ALL}, "options"), Input(store_id, "data")
 )
 def fetch_columns_from_data(data):
     """Handle options for graph option dropdowns
@@ -71,18 +70,18 @@ def fetch_columns_from_data(data):
     if not func.validate_store_data(data):
         raise PreventUpdate
 
-    options = func.fetch_columns_options(data['df'])
+    options = func.fetch_columns_options(data["df"])
 
     return [options for i in range(len(go.attributes))]
 
 
 @app.callback(
-    Output(graph.graph_id, 'figure'),
-    Input(store_id, 'data'),
-    Input({'type': go.att_drop, 'index': ALL}, 'value'),
-    Input({'type': go.label_input, 'index': ALL}, 'value'),
-    Input(go.graph_height, 'value'),
-    Input(go.graph_type, 'value')
+    Output(graph.graph_id, "figure"),
+    Input(store_id, "data"),
+    Input({"type": go.att_drop, "index": ALL}, "value"),
+    Input({"type": go.label_input, "index": ALL}, "value"),
+    Input(go.graph_height, "value"),
+    Input(go.graph_type, "value"),
 )
 def create_figure(data, att_values, label_values, height, graph_type):
     """Handle options for graph option dropdowns
@@ -103,7 +102,7 @@ def create_figure(data, att_values, label_values, height, graph_type):
         figure: plotly.graph_objects.Figure
             Created graph object
     """
-    
+
     if not func.validate_store_data(data) or all(i is None for i in att_values):
         raise PreventUpdate
 
@@ -112,7 +111,7 @@ def create_figure(data, att_values, label_values, height, graph_type):
     labels = dict(zip(go.labels, label_values))
 
     # prep data
-    df = pd.DataFrame(data['df'])
+    df = pd.DataFrame(data["df"])
 
     # Set the x and y axis labels
     graph_labels = {}
@@ -126,7 +125,7 @@ def create_figure(data, att_values, label_values, height, graph_type):
     graph_labels[y_att] = y_lab if (y_att and y_lab) else y_att
 
     # create the scatter plot
-    if(graph_type == 'scatter'):
+    if graph_type == "scatter":
         figure = px.scatter(
             df,
             x=x_att,
@@ -135,9 +134,9 @@ def create_figure(data, att_values, label_values, height, graph_type):
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
         )
-    elif(graph_type == 'bar'):
+    elif graph_type == "bar":
         figure = px.bar(
             df,
             x=x_att,
@@ -146,9 +145,9 @@ def create_figure(data, att_values, label_values, height, graph_type):
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
         )
-    elif(graph_type == 'line'):
+    elif graph_type == "line":
         figure = px.line(
             df,
             x=x_att,
@@ -157,7 +156,7 @@ def create_figure(data, att_values, label_values, height, graph_type):
             color=attributes[go.color],
             title=labels[go.title],
             labels=graph_labels,
-            height=height
+            height=height,
         )
 
     return figure

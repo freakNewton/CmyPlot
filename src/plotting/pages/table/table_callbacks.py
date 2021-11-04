@@ -10,9 +10,9 @@ from plotting.layout.layout import store_id
 
 
 @app.callback(
-    Output(table.table_id, 'data'),
-    Output(table.table_id, 'columns'),
-    Input(store_id, 'data')
+    Output(table.table_id, "data"),
+    Output(table.table_id, "columns"),
+    Input(store_id, "data"),
 )
 def initialize_table_data(data):
     """Handle setting table data
@@ -30,5 +30,5 @@ def initialize_table_data(data):
     if data is None:
         raise PreventUpdate
 
-    cols = fetch_columns_options(data['df'], table=True)
-    return data['df'], cols
+    cols = fetch_columns_options(data["df"], table=True)
+    return data["df"], cols

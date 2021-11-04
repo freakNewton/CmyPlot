@@ -5,12 +5,8 @@ import random
 from plotting.pages.graph import graph_callbacks as gc
 from plotting.pages.graph.components import graph_options as go
 
-df = pd.DataFrame({
-    'x1': [0, 1, 2],
-    'x2': [6, 7, 8],
-    'y': [0, 0, 0]
-})
-data = {'df': df.to_dict('records')}
+df = pd.DataFrame({"x1": [0, 1, 2], "x2": [6, 7, 8], "y": [0, 0, 0]})
+data = {"df": df.to_dict("records")}
 graph_types = ["line", "bar", "scatter"]
 
 
@@ -29,12 +25,14 @@ def test_fetch_columns_from_data():
 
 def test_create_figure():
 
-    cols = list(data['df'][0].keys())
+    cols = list(data["df"][0].keys())
     att_values = [random.choice(cols) for i in go.attributes]
     label_values = [random.choice(cols) for i in go.labels]
     height = 500
     graph_type = random.choice(graph_types)
-    output = gc.create_figure.__wrapped__(data, att_values, label_values, height,graph_type)
+    output = gc.create_figure.__wrapped__(
+        data, att_values, label_values, height, graph_type
+    )
 
     assert isinstance(output, plotly.graph_objects.Figure)
     # Not sure what exactly to test here.

@@ -6,27 +6,26 @@ import dash_bootstrap_components as dbc
 
 # set constants
 # collapse functionality
-toggler = 'id-options-toggler'
-collapse = 'id-options-collapse'
+toggler = "id-options-toggler"
+collapse = "id-options-collapse"
 
 # option inputs
 # attributes
-x_att = 'X-Axis'
-y_att = 'Y-Axis'
-size = 'Size'
-color = 'Color'
+x_att = "X-Axis"
+y_att = "Y-Axis"
+size = "Size"
+color = "Color"
 attributes = [x_att, y_att, size, color]
-att_drop = 'id-att-dropdown'
+att_drop = "id-att-dropdown"
 # labels
-x_lab = 'X Label'
-y_lab = 'Y Label'
-title = 'Title'
+x_lab = "X Label"
+y_lab = "Y Label"
+title = "Title"
 labels = [title, x_lab, y_lab]
-label_input = 'id-label-input'
+label_input = "id-label-input"
 # other
-graph_type = 'id-options-graph-type'
-graph_height = 'id-options-height'
-
+graph_type = "id-options-graph-type"
+graph_height = "id-options-height"
 
 
 def create_attribute_dropdown(attributes, id):
@@ -43,18 +42,12 @@ def create_attribute_dropdown(attributes, id):
             Componets to be added with the dropdown
     """
 
-    children = [html.H4('Attributes')]
+    children = [html.H4("Attributes")]
 
     for i, att in enumerate(attributes):
-        children.append(html.H6(att + ':'))
+        children.append(html.H6(att + ":"))
         children.append(
-            dcc.Dropdown(
-                id={
-                    'type': id,
-                    'index': i
-                },
-                className='dash-bootstrap'
-            )
+            dcc.Dropdown(id={"type": id, "index": i}, className="dash-bootstrap")
         )
 
     return children
@@ -74,18 +67,13 @@ def create_label_dropdown(labels, id):
             Componets to be added with the dropdown
     """
 
-    children = [html.H4('Labels')]
+    children = [html.H4("Labels")]
 
     for i, lab in enumerate(labels):
-        children.append(html.H6(lab + ':'))
+        children.append(html.H6(lab + ":"))
         children.append(
             dcc.Input(
-                id={
-                    'type': id,
-                    'index': i
-                },
-                type='text',
-                className='dash-bootstrap'
+                id={"type": id, "index": i}, type="text", className="dash-bootstrap"
             )
         )
 
@@ -95,15 +83,7 @@ def create_label_dropdown(labels, id):
 # components
 card = dbc.Card(
     [
-        dbc.CardHeader(
-            html.H3(
-                dbc.Button(
-                    'Graph Options',
-                    color='link',
-                    id=toggler
-                )
-            )
-        ),
+        dbc.CardHeader(html.H3(dbc.Button("Graph Options", color="link", id=toggler))),
         dbc.Collapse(
             dbc.CardBody(
                 [
@@ -111,28 +91,30 @@ card = dbc.Card(
                     html.Hr(),
                     html.Div(create_label_dropdown(labels, label_input)),
                     html.Hr(),
-                    html.H4('Other'),
-                    html.H6('Graph Type:'),
+                    html.H4("Other"),
+                    html.H6("Graph Type:"),
                     dcc.Dropdown(
                         id=graph_type,
-                        options=[{'label': 'Scatter Plot', 'value': 'scatter'},
-                                 {'label': 'Line Plot', 'value': 'line'},
-                                 {'label': 'Bar Plot', 'value': 'bar'}],
+                        options=[
+                            {"label": "Scatter Plot", "value": "scatter"},
+                            {"label": "Line Plot", "value": "line"},
+                            {"label": "Bar Plot", "value": "bar"},
+                        ],
                         # disabled=True
-                        value='scatter'
+                        value="scatter",
                     ),
-                    html.H6('Height (px):'),
+                    html.H6("Height (px):"),
                     dcc.Input(
                         id=graph_height,
-                        type='number',
+                        type="number",
                         min=100,
                         max=1000,
                         step=50,
-                        value=700
-                    )
+                        value=700,
+                    ),
                 ]
             ),
-            id=collapse
-        )
+            id=collapse,
+        ),
     ]
 )
