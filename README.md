@@ -121,9 +121,9 @@ https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-
 
      **To run/test the site locally:**
 
-     - Clone [this (CmyPlot) github repo](https://github.com/bradley-erickson/CmyPlot).
+     - Clone [this (CmyPlot) github repo](https://github.com/thosaniparth/CmyPlot).
 
-     - Navigate to [project directory](./).
+     - Navigate to project directory.
 
      - Create a virtual environment:
 
@@ -150,7 +150,8 @@ https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-
         `http://127.0.0.1:8085/`
        
    **Website is hosted at:**
-        `https://cmyplot-seproject.herokuapp.com`
+   
+   [CmyPlot](https://cmyplot-seproject.herokuapp.com)
 
   ## Roadmap
    - [List of Roadmap and their corresponding open issues](https://github.com/thosaniparth/CmyPlot/issues/21)
