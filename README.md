@@ -54,7 +54,7 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
 
   <tr style="background: #010203 ">
     <td valign="left"> 
-      <p style="color: #FF7A59"> 3.ou have an option to upload your csv file 
+      <p style="color: #FF7A59"> 3.You have an option to upload your csv file 
         by Drag and drop or click 
       </p>
       <a href="./docs/images/pre_upload.png"> 
@@ -73,8 +73,8 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
   
   <tr style="background: #010203;"> 
     <td valign="left">
-      <p style="color: #FF7A59"> 5.For table, you could use 
-      filters to sort the data as you want
+      <p style="color: #FF7A59"> 5.You have an option to upload your csv file 
+        by Drag and drop or click
       </p>  
       <a href="./docs/images/table.png">
         <img src="./docs/images/table.png">    
@@ -127,14 +127,31 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
   
   <tr style="background: #010203;"> 
     <td valign="left">
-     <p style="color: #FF7A59"> 11.Share graph via email with a message
+     <p style="color: #FF7A59"> 11.You can select graph type from the filters - Bar chart
+      </p>
+     <a href="./docs/images/barchart.png">
+        <img src="./docs/images/barchart.png"> 
+      </a> 
+    </td> 
+    <td valign="left">
+     <p style="color: #FF7A59"> 12.You can select graph type from the filters - Line chart
+      </p>
+     <a href="./docs/images/linechart.png">
+        <img src="./docs/images/linechart.png"> 
+      </a> 
+    </td> 
+  </tr> 
+  
+  <tr style="background: #010203;"> 
+    <td valign="left">
+     <p style="color: #FF7A59"> 13.Share graph via email with a message
       </p>
      <a href="./docs/images/email.jpg">
         <img src="./docs/images/email.jpg"> 
       </a> 
     </td> 
     <td valign="left">
-     <p style="color: #FF7A59"> 12.Email
+     <p style="color: #FF7A59"> 14.Email
       </p>
      <a href="./docs/images/share_graph.png">
         <img src="./docs/images/share_graph.png"> 
