@@ -15,7 +15,7 @@
 |.5|issues are discussed before they are closed | After implementation of every issues, there's been validation based on whether the issue is properly working or not. Additionally, all the dependencies based on that issue is discussed and checked if all the functionalities are working fine. For eg. 1. Login System was added to the project to maintain and track the record of every user. After, implmenting all the necessary dependencies were checked such as new attributes are added to the database tables, main index.html file and other dependent on that are updated, etc. |
 |.5|Use of syntax checkers. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |1|Issues reports: there are many  | https://github.com/thosaniparth/CmyPlot/issues |
-|.5|Use of code formatters. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/code_formatter.yml |
+|.5|Use of code formatters. | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |.5|Use of style checkers | https://github.com/thosaniparth/CmyPlot/blob/main/.github/workflows/python-app.yml |
 |.5|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code. | https://github.com/thosaniparth/CmyPlot/blob/main/README.md |
 |.5|test cases exist  | a lot of test cases exist covering almost all the functionalities. (https://github.com/thosaniparth/CmyPlot/blob/main/tests/keyword_extraction_modules_test.py) |
