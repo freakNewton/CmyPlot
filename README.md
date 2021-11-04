@@ -110,14 +110,14 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
   
   <tr style="background: #010203;"> 
     <td valign="left">
-     <p style="color: #FF7A59"> 7.Data information - Mean, Median, Standard Deviation
+     <p style="color: #FF7A59"> 9.Data information - Mean, Median, Standard Deviation
       </p>
      <a href="./docs/images/graph_information.png">
         <img src="./docs/images/graph_information.png"> 
       </a> 
     </td> 
     <td valign="left">
-     <p style="color: #FF7A59"> 8.Data attributes to be displayed in tooltip
+     <p style="color: #FF7A59"> 10.Data attributes to be displayed in tooltip
       </p>
      <a href="./docs/images/hover_options.png">
         <img src="./docs/images/hover_options.png"> 
@@ -127,14 +127,14 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
   
   <tr style="background: #010203;"> 
     <td valign="left">
-     <p style="color: #FF7A59"> 7.Share graph via email with a message
+     <p style="color: #FF7A59"> 11.Share graph via email with a message
       </p>
      <a href="./docs/images/email.jpg">
         <img src="./docs/images/email.jpg"> 
       </a> 
     </td> 
     <td valign="left">
-     <p style="color: #FF7A59"> 8.Email
+     <p style="color: #FF7A59"> 12.Email
       </p>
      <a href="./docs/images/share_graph.png">
         <img src="./docs/images/share_graph.png"> 
