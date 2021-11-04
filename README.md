@@ -25,7 +25,9 @@ As the famous saying goes - `"The greatest value of visualization is when it for
 - **Language used:** Python
 - **Libraries used:** Flask, Plotly, Dash
 ## Visual Walkthrough:
-https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-876c-3f5ff7d86e38.mp4
+
+https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-a380-b2bc2cdc2bd0.mp4
+
 
 ## Quick look:
 
