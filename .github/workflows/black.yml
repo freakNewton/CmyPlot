@@ -22,5 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: rickstaa/action-black@v1
-        with:
-          black_args: ". --check"
+#         with:
+#           black_args: ". --check"
+      - run: |
+          python3 -m black src/plotting
