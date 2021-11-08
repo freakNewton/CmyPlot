@@ -36,10 +36,11 @@ As the famous saying goes - `"The greatest value of visualization is when it for
 7. [Future Scope](#FutureScope)
 8. [Team Members](#TeamMember)
 
-## Visual Walkthrough: <a name="demo">
+## Visual Walkthrough: 
 
 ## Phase 1
 https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-876c-3f5ff7d86e38.mp4
+
 ## Phase 2
 https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-a380-b2bc2cdc2bd0.mp4
 
