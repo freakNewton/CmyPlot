@@ -28,7 +28,7 @@ As the famous saying goes - `"The greatest value of visualization is when it for
 
 ## Important Links
 1. [User Story Board and Project Vision](https://github.com/thosaniparth/CmyPlot/wiki/User-Story-Board-and-Project-Vision)
-2. You can view the web app here [CmyPlot](https://cmyplot-seproject.herokuapp.com) !!
+2. You can view the web app here [CmyPlot](https://cmyplot-seproject.herokuapp.com) !! Test Credentials - Username: hello, Password: world
 3. How Phase 2 is improved from Phase 1 - [Checkout here](https://github.com/thosaniparth/CmyPlot/blob/main/docs/SE%20Phase%202%20-%20How%20this%20version%20improves%20on%20the%20older%20version.pdf)
 4. [Project Phase 2 Rubrics](https://github.com/thosaniparth/CmyPlot/blob/main/proj2rubric.md)
 5. [Instructions](#Instructions)
