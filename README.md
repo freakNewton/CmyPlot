@@ -1,5 +1,6 @@
 # CmyPlot  
-**Data Visualisation Web App** 
+**Data Visualisation Web App**  
+  
 
 
 ![GitHub](https://img.shields.io/github/license/thosaniparth/Cmyplot)
@@ -24,8 +25,22 @@ As the famous saying goes - `"The greatest value of visualization is when it for
 
 - **Language used:** Python
 - **Libraries used:** Flask, Plotly, Dash
-## Visual Walkthrough:
 
+## Important Links
+1. You can view the web app here [CmyPlot](https://cmyplot-seproject.herokuapp.com) !!
+2. [Demo](#demo) of the Project 
+3. How Phase 2 is improved from Phase 1 - [Checkout here](https://github.com/thosaniparth/CmyPlot/blob/main/docs/SE%20Phase%202%20-%20How%20this%20version%20improves%20on%20the%20older%20version.pdf)
+4. [Project Phase 2 Rubrics](https://github.com/thosaniparth/CmyPlot/blob/main/proj2rubric.md)
+5. [Instructions](#Instructions)
+6. What's new in [Phase 2](#Phase2)?
+7. [Future Scope](#FutureScope)
+8. [Team Members](#TeamMember)
+
+## Visual Walkthrough: <a name="demo">
+
+## Phase 1
+https://user-images.githubusercontent.com/65619749/134620802-5fac9f0e-d697-49df-876c-3f5ff7d86e38.mp4
+## Phase 2
 https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-a380-b2bc2cdc2bd0.mp4
 
 
@@ -172,7 +187,7 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
    
 ## Getting started:
 
-  - ### Prerequisite:
+  - ### Prerequisite: 
       - Download [Python3.x](https://www.python.org/downloads/) on your system.
 
    - ### Installation:
@@ -191,7 +206,7 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
 
         `pip install -r requirements.txt`
 
-  - ### Run Instructions
+  - ### Run Instructions <a name="Instructions">
 
      **To run/test the site locally:**
 
@@ -223,14 +238,17 @@ https://user-images.githubusercontent.com/89279195/140425356-148bc24a-96bd-4ec0-
      
         `http://127.0.0.1:8085/`
        
-   **Website is hosted at:**
-   
-   [CmyPlot](https://cmyplot-seproject.herokuapp.com)
-
-  ## Roadmap
+## What's new in Phase 2? <a name="Phase2">
+  - Implemented Collaborative Work - Sharing of the images of plots to other users via email
+  - Support for more graphs in the application - Added Line, Bar Graphs
+  - Informative Graphs - Added more information to the graphs such as central tendencies 
+  - Implemented Authentication - Added method for authenticating the users via user name and password
+  - Additional details on the hover of the graph - Users can select columns to view and get data on hover of the points on the graph
+  - Dynamic rows on pages - Users can select the number of rows they want to see on a particular page and also can change the number of pages
+  ## Roadmap <a name="FutureScope">
    - [List of Roadmap and their corresponding open issues](https://github.com/thosaniparth/CmyPlot/issues/21)
        
-## Team Members
+## Team Members <a name="TeamMember"></a>
 [Simran Bosamiya](https://github.com/BosamiyaSimran)
 
 [Nisarg Shah](https://github.com/freakNewton)
