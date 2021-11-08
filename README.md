@@ -28,13 +28,12 @@ As the famous saying goes - `"The greatest value of visualization is when it for
 
 ## Important Links
 1. You can view the web app here [CmyPlot](https://cmyplot-seproject.herokuapp.com) !!
-2. [Demo](#demo) of the Project 
-3. How Phase 2 is improved from Phase 1 - [Checkout here](https://github.com/thosaniparth/CmyPlot/blob/main/docs/SE%20Phase%202%20-%20How%20this%20version%20improves%20on%20the%20older%20version.pdf)
-4. [Project Phase 2 Rubrics](https://github.com/thosaniparth/CmyPlot/blob/main/proj2rubric.md)
-5. [Instructions](#Instructions)
-6. What's new in [Phase 2](#Phase2)?
-7. [Future Scope](#FutureScope)
-8. [Team Members](#TeamMember)
+2. How Phase 2 is improved from Phase 1 - [Checkout here](https://github.com/thosaniparth/CmyPlot/blob/main/docs/SE%20Phase%202%20-%20How%20this%20version%20improves%20on%20the%20older%20version.pdf)
+3. [Project Phase 2 Rubrics](https://github.com/thosaniparth/CmyPlot/blob/main/proj2rubric.md)
+4. [Instructions](#Instructions)
+5. What's new in [Phase 2](#Phase2)?
+6. [Future Scope](#FutureScope)
+7. [Team Members](#TeamMember)
 
 ## Visual Walkthrough: 
 
