@@ -26,6 +26,11 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install -e . plotting
+    - name: Run Tests
+      run: |
+        import os
+        os.join(os.getcwd(),"tests")
+        pytest
     - name: Lint with black
       run: |
          python3 -m black src/plotting
