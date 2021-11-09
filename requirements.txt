@@ -38,7 +38,7 @@ packaging==21.0
 pandas==1.3.3
 pathspec==0.9.0
 plotly==5.3.1
--e git+https://github.com/thosaniparth/CmyPlot.git@0e7b08bfc7a5235e2959dcef5b34933f35ae1f9b#egg=plotting
+-e .
 pluggy==1.0.0
 py==1.10.0
 pycodestyle==2.7.0
