@@ -107,6 +107,22 @@ def initialize_table_data(data):
     Input(table.page_count, "value"),
 )
 def update_table(use_page_count, page_count_value):
+    '''
+    Set the page count for Table View of the uploaded csv file.
+
+    Parameters
+    -----------
+        use_page_count: int
+            Numeric value to check if the program should use the page count value from the Input field. 
+        page_count_value: int
+            Numeric value to set for the table.
+
+    Returns
+    ---------
+        Page_count_value: int
+            Set the page count value in the table.
+    
+    '''
     if len(use_page_count) == 0 or page_count_value is None:
         return None
     return page_count_value
@@ -117,6 +133,20 @@ def update_table(use_page_count, page_count_value):
     Input(table.page_size, "value"),
 )
 def update_table(page_size):
+    '''
+    Set the Page size (number of rows per page) for the table.
+
+    Parameters
+    -----------
+        page_size: int
+            Numeric value to set for the page size of the table.
+
+    Returns
+    ---------
+        page_size: int
+            Set the page size for the table.
+    
+    '''
     if page_size == None:
         raise PreventUpdate
     return page_size

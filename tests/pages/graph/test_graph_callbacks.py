@@ -24,7 +24,6 @@ def test_fetch_columns_from_data():
     output = gc.fetch_columns_from_data.__wrapped__(data)
     assert len(output) == expected
 
-
 def test_create_figure():
 
     cols = list(data["df"][0].keys())
