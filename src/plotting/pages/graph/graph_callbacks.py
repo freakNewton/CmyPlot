@@ -144,13 +144,25 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             List of values returned from the attribute dropdowns
         label_values: list
             List of values for various labels
+        hover_values: list
+            List of values to show on hover over each point on plot
         height: int
             Height of graph in pixels
+        graph_type: str
+            Graph type to plot for the select data
 
     Returns
     ----------
         figure: plotly.graph_objects.Figure
             Created graph object
+        Mean: float
+            Numeric value for the columns selected for X and Y-axis
+        Median: float
+            Numeric value for the columns selected for X and Y-axis
+        Mode: float 
+            Numeric value for the columns selected for X and Y-axis
+        Standard Deviation: float
+            Numeric value for the columns selected for X and Y-axis           
     """
 
     if (
@@ -245,14 +257,18 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
             height=height,
             hover_data=[hover_column],
         )
-    joblib.dump(figure, "src/plotting/assets/images/fig.pkl")
+    print(os.getcwd())
+    joblib.dump(figure, "../src/plotting/assets/images/fig.pkl")
 
     return figure, x_mean, x_median, x_mode, y_mean, y_median, y_mode, x_std, y_std
 
 
 @app.callback(
     Output("share-modal", "is_open"),
-    [Input("share-button", "n_clicks"), Input("send-button", "n_clicks")],
+    [
+        Input("share-button", "n_clicks"), 
+        Input("send-button", "n_clicks")
+    ],
     [
         State("share-modal", "is_open"),
         State("email-id", "value"),
@@ -260,15 +276,39 @@ def create_figure(data, att_values, label_values, hover_values, height, graph_ty
     ],
 )
 def share_graph(n1, n2, is_open, emailid, msg):
+    '''
+    Share the current plot through email.
+
+    Parameters
+    -------------
+        n1: int
+            Number of button clicks pressed by the user
+        n2: int
+            Number of button clicks pressed by the user
+        is_open: boolean
+            Boolean variable to check if the Modal screen is open or not.
+        emailid: str
+            Email ID of the user to send the current plot.
+        msg: str
+            A custom message to send with the email for description.     
+    
+    Returns
+    ----------
+        is_open: boolean
+            Modal state for the current Modal screen.
+        error_dict: str
+            Error dictionary for testing purpose.
+    '''
     if is_open is True:
         # print(emailid, msg)
         receiver_email = emailid
         with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             # restoring graph object pkl
-            temp = joblib.load("src/plotting/assets/images/fig.pkl")
-            pio.write_image(temp, "src/plotting/assets/images/graph.png")
+            print(os.getcwd())
+            temp = joblib.load("../src/plotting/assets/images/fig.pkl")
+            pio.write_image(temp, "../src/plotting/assets/images/graph.png")
             # saving graph image locally
-            with open("src/plotting/assets/images/graph.png", "rb") as f:
+            with open("../src/plotting/assets/images/graph.png", "rb") as f:
                 img_data = f.read()
             # initlializing message object for email
             message = MIMEMultipart()
@@ -283,10 +323,10 @@ def share_graph(n1, n2, is_open, emailid, msg):
             # Reidentify our connection as encrypted with the mail server
             smtp.ehlo()
             smtp.login(sender_email, sender_pwd)
-            smtp.sendmail(sender_email, receiver_email, message.as_string())
+            error_dict=smtp.sendmail(sender_email, receiver_email, message.as_string())
             smtp.quit()
             # os.truncate("src/plotting/assets/images/graph.png")
             # os.truncate("src/plotting/assets/images/fig.pkl")
     if n1 or n2:
-        return not is_open
-    return is_open
+        return not is_open,error_dict
+    return is_open,error_dict

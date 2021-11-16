@@ -1,6 +1,8 @@
 import pandas as pd
 import plotly
 import random
+import smtplib
+import pytest
 
 from plotting.pages.graph import graph_callbacks as gc
 from plotting.pages.graph.components import graph_options as go
@@ -21,7 +23,6 @@ def test_fetch_columns_from_data():
     expected = len(go.attributes)
     output = gc.fetch_columns_from_data.__wrapped__(data)
     assert len(output) == expected
-
 
 def test_create_figure():
 
@@ -74,3 +75,20 @@ def test_create_figure():
     #             'xaxis': {'anchor': 'y', 'domain': [0.0, 1.0], 'title': {'text': 'x2'}},
     #             'yaxis': {'anchor': 'x', 'domain': [0.0, 1.0], 'title': {'text': 'x1'}}}
     # })
+
+def test_email_share():
+    test_email_1="nsshah5@ncsu.edu"
+    test_email_2="test email"
+    n1=3
+    n2=5
+    is_open=True
+    msg="Testing for email share"
+    
+    _,output1=gc.share_graph.__wrapped__(n1,n2,is_open,test_email_1,msg)
+    assert bool(output1)==False
+
+    pytest.raises(smtplib.SMTPRecipientsRefused,gc.share_graph.__wrapped__,n1,n2,is_open,test_email_2,msg)
+
+
+
+
