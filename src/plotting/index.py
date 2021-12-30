@@ -20,12 +20,12 @@ import dash
 server = app.server
 
 
-VALID_USERNAME_PASSWORD_PAIRS = {
-    "hello": "world",
-    "thosaniparth": "pthosan",
-    "shahnisarg": "nsshah05",
-}
-auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
+# VALID_USERNAME_PASSWORD_PAIRS = {
+#     "hello": "world",
+#     "thosaniparth": "pthosan",
+#     "shahnisarg": "nsshah05",
+# }
+# auth = dash_auth.BasicAuth(app, VALID_USERNAME_PASSWORD_PAIRS)
 
 # site endpoint
 if __name__ == "__main__":
